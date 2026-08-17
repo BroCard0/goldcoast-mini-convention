@@ -160,15 +160,17 @@
   position: relative;
   z-index: 3;
 
-  width: min(800px, calc(100% - 6rem));
+  width: min(1000px, 90%);
+  margin-inline: auto;
 
-  margin-left: 15rem;
-  margin-top: -4rem;
+  padding-top: clamp(2rem, 5vh, 5rem);
 }
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100sv;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background:
   /* Blue concentrated toward bottom-left */
     radial-gradient(
@@ -214,12 +216,14 @@
 
 .logo {
   display: block;
-  width: min(700px, 100%);
+  width: min(1000px, 100%);
 }
 
 .logo img {
-  width: 60rem;
+  display: block;
+  width: min(40rem, 100%);
   height: auto;
+  margin-top: 2rem;
 }
 
 .hero-text {
@@ -230,12 +234,12 @@
 .hero-text p {
   margin-bottom: 0.4rem;
 
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 
-  margin-left: 16rem;
+  margin-left: 23rem;
   margin-top: -2rem;
 }
 
@@ -916,13 +920,57 @@ dialog[open] .scripture-popup p {
   padding-top: 2rem;
 }
 
+@media (min-width: 769px) and (max-width: 1050px) {
+  .hero-content {
+    width: 90%;
+    margin-inline: auto;
+    padding-top: 3rem;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .logo img {
+    width: min(34rem, 80vw);
+    margin-inline: auto;
+  }
+
+  .hero-text {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-text p {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .hero-text h1,
+  .hero-text h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-text h2 {
     margin-bottom: 28rem;
   }
+  .logo img {
+    width: min(32rem, 100%);
+  }
+  .hero-text h2 {
+    margin-bottom: 42rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .logo img {
+    width: min(30rem, 100%);
+  }
   .hero-content {
     width: 90%;
     margin-left: auto;
@@ -1028,10 +1076,13 @@ dialog[open] .scripture-popup p {
       );
   }
   .hero-text h2 {
-    margin-bottom: 38rem;
+    margin-bottom: 42rem;
   }
 }
 @media (max-width: 650px) {
+  .logo img {
+    width: min(26rem, 100%);
+  }
   .venue-details {
     grid-template-columns: 1fr;
     align-items: center;
@@ -1046,7 +1097,7 @@ dialog[open] .scripture-popup p {
     flex-direction: column;
     align-items: center;
   }
- .venue-details {
+  .venue-details {
     grid-template-columns: 1fr;
     width: 100%;
     justify-items: center;
@@ -1066,7 +1117,7 @@ dialog[open] .scripture-popup p {
     max-width: 320px;
     margin-inline: auto;
   }
-  
+
   .map-wrapper {
     justify-self: center;
     margin-left: auto;
@@ -1080,17 +1131,20 @@ dialog[open] .scripture-popup p {
   }
 }
 @media (max-width: 600px) {
+  .logo img {
+    width: min(24rem, 100%);
+    margin-left: -15rem;
+  }
   .logo {
     width: 130%;
     display: flex;
     justify-content: center;
   }
-
-  .logo img {
-    width: min(42rem, 125vw);
-    max-width: none;
-    height: auto;
+  .scripture-popup {
+    width: 90vw;
+    padding: 4rem 1.5rem;
   }
+
   .waves {
     width: 250%;
     max-width: none;
@@ -1125,8 +1179,44 @@ dialog[open] .scripture-popup p {
       );
   }
 }
+@media (min-width: 431px) and (max-width: 520px) {
+  .logo img {
+    width: min(22rem, 100%);
+    margin-left: -7.5rem;
+  }
+  .hero-text h2 {
+    max-width: 650px;
+
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-left: 10rem;
+    margin-bottom: 31rem;
+  }
+
+  .hero-text p {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-left: 10rem;
+    margin-top: -1rem;
+  }
+  .hero-text h1 {
+    margin-bottom: 0.6rem;
+    margin-left: -2rem;
+    max-width: 700px;
+
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+}
 
 @media (max-width: 430px) {
+  .logo img {
+    width: min(20rem, 100%);
+    margin-left: -10rem;
+  }
   .waves {
     width: 350%;
     max-width: none;
@@ -1148,20 +1238,22 @@ dialog[open] .scripture-popup p {
     line-height: 1.2;
     margin-left: 10rem;
   }
-  .logo {
-    width: 155%;
-    display: flex;
-    justify-content: center;
-  }
 
-  .logo img {
-    width: min(50rem, 140vw);
-    max-width: none;
-    height: auto;
-  }
   .hero-text p {
     font-size: 1.5rem;
     letter-spacing: 0.1em;
+    margin-left: 12rem;
+    margin-top: -1rem;
+  }
+  .hero-text h1 {
+    margin-bottom: 0.6rem;
+    margin-left: -3rem;
+    max-width: 700px;
+
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
   }
 }
 
@@ -1196,6 +1288,12 @@ dialog[open] .scripture-popup p {
     top: 11rem;
     left: 1.7rem;
   }
+  .scripture-card p {
+    font-size: 1.2rem;
+  }
+  dialog {
+    font-size: 1.9rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -1226,6 +1324,10 @@ dialog[open] .scripture-popup p {
 }
 
 @media (max-width: 390px) {
+  .logo img {
+    width: min(20rem, 100%);
+    margin-left: -7.2rem;
+  }
   .hero-text h1 {
     margin-bottom: 0.6rem;
 
@@ -1238,7 +1340,7 @@ dialog[open] .scripture-popup p {
   }
   .hero-text h2 {
     max-width: 650px;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
   .waves {
     width: 375%;
@@ -1248,46 +1350,5 @@ dialog[open] .scripture-popup p {
     transform: translateX(-50%);
 
     bottom: 0;
-  }
-}
-
-@media (max-width: 360px) {
-  .hero-text p {
-    margin-bottom: 0.4rem;
-
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-
-    margin-left: 14rem;
-    margin-top: -2rem;
-  }
-  .hero-text h2 {
-    max-width: 750px;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    margin-bottom: 30rem;
-  }
-
-  .waves {
-    bottom: 0%;
-  }
-  .hero {
-    background:
-      radial-gradient(
-        ellipse 45% 18% at bottom left,
-        rgba(72, 201, 213, 0.9) 0%,
-        rgba(89, 212, 224, 0.65) 22%,
-        transparent 48%
-      ),
-      linear-gradient(
-        180deg,
-        var(--sun) 0%,
-        var(--pale-orange) 35%,
-        var(--orange) 65%,
-        #48c9d5 82%,
-        #59d4e0 100%
-      );
   }
 }
