@@ -920,6 +920,17 @@ dialog[open] .scripture-popup p {
   padding-top: 2rem;
 }
 
+@media (min-width: 1600px) {
+  .waves {
+    width: 100%;
+    max-width: none;
+  }
+.hero-text h2 {
+    margin-bottom: 45rem; /* increase from 37rem until the gap looks right */
+  }
+
+}
+
 @media (min-width: 769px) and (max-width: 1050px) {
   .hero-content {
     width: 90%;
