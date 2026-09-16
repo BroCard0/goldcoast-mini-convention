@@ -16,6 +16,14 @@ document.addEventListener("click", (e) => {
     hamburger.classList.remove("active");
   }
 });
+const navLinkItems = navLinks.querySelectorAll("a");
+
+navLinkItems.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    hamburger.classList.remove("active");
+  });
+});
 const scripturePairs = [
   {
     card: document.getElementById("jeremiah-card"),
