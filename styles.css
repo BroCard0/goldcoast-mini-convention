@@ -124,8 +124,6 @@
   transition: all 0.3s ease;
 
   border: 1px solid rgba(255, 90, 90, 0.2);
-
-  
 }
 
 .nav-links a:hover {
@@ -906,6 +904,8 @@ dialog[open] .scripture-popup p {
   place-content: center;
   gap: 1rem;
 
+  margin-bottom: 10rem;
+
   text-align: center;
 
   position: relative;
@@ -944,12 +944,143 @@ dialog[open] .scripture-popup p {
   font-size: clamp(0.4rem, 1.2vw, 1.4rem);
   color: var(--text-blue);
   font-family: "Inter", sans-serif;
-  line-height: 1..2;
+  line-height: 1.2;
 }
 .schedule-card hr {
   margin: 0.5rem 0;
   border: none;
   border-top: 2px solid var(--sun);
+}
+.food {
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  background-color: #dff6f8;
+
+  isolation: isolate;
+  padding-top: 8rem;
+}
+.food::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    url("images/grain-texture.webp"), url("images/grain-texture.webp");
+
+  background-size:
+    1200px 1200px,
+    650px 650px;
+
+  background-repeat: repeat;
+  background-position:
+    0 0,
+    120px 180px;
+
+  opacity: 0.14;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.food span {
+  display: block;
+
+  height: 0.2rem;
+  width: 80%;
+
+  margin: 2rem auto;
+
+  border-radius: 999px;
+  background-color: var(--text-blue);
+
+  opacity: 0.6;
+}
+
+.food h2 {
+  font-size: clamp(1.75rem, 3.25vw, 3.75rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.001em;
+  font-family: "Inter", sans-serif;
+  color: var(--text-blue);
+
+  padding-top: 6rem;
+}
+.food p {
+  font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.2;
+
+  color: var(--text-blue);
+  font-family: "Inter", sans-serif;
+
+  padding-top: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.food-section {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+
+  width: min(1200px, calc(100% - 6rem));
+  margin: 5rem auto 0;
+}
+.food-card {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr; /* ensures a single stretching column */
+  justify-items: stretch; /* stretches children to fill the column width */
+  gap: 1rem;
+
+  margin-bottom: 10rem;
+
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  padding: 2.5rem;
+
+  z-index: 6;
+
+  background: var(--glacier-mist);
+  border: 1px solid rgba(86, 70, 45, 0.12);
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--text-blue);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.food-card h3 {
+  margin: 0;
+
+  color: var(--text-blue);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 1.75rem);
+}
+
+.food-card p {
+  margin: 0;
+
+  font-size: clamp(0.4rem, 1.2vw, 1.4rem);
+  color: var(--text-blue);
+  font-family: "Inter", sans-serif;
+  line-height: 1.2;
+}
+.food-card iframe,
+.food-card img {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 1rem;
 }
 .footer {
   min-height: 10vh;
@@ -958,7 +1089,7 @@ dialog[open] .scripture-popup p {
   background-color: #dff6f8;
 
   isolation: isolate;
-} 
+}
 .footer::before {
   content: "";
   position: absolute;
@@ -996,10 +1127,9 @@ dialog[open] .scripture-popup p {
     width: 100%;
     max-width: none;
   }
-.hero-text h2 {
+  .hero-text h2 {
     margin-bottom: 45rem; /* increase from 37rem until the gap looks right */
   }
-
 }
 
 @media (min-width: 769px) and (max-width: 1050px) {
@@ -1165,14 +1295,30 @@ dialog[open] .scripture-popup p {
 
     width: 75%;
     max-width: 600px;
-    margin: 4rem auto 0;
-
-    gap: 3rem;
   }
-   .schedule-card h3 {
+  .schedule-card {
+    margin-bottom: 0rem;
+  }
+  .schedule-card h3 {
     font-size: 1.5rem;
   }
   .schedule-card p {
+    font-size: 1rem;
+  }
+  .food-section {
+    grid-template-columns: 1fr;
+
+    width: 75%;
+    max-width: 600px;
+   
+  }
+  .food-card {
+    margin-bottom: 0rem;
+  }
+  .food-card h3 {
+    font-size: 1.5rem;
+  }
+  .food-card p {
     font-size: 1rem;
   }
 }
