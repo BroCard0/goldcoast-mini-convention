@@ -1293,33 +1293,35 @@ dialog[open] .scripture-popup p {
   .schedule-card-section {
     grid-template-columns: 1fr;
 
-    width: 75%;
+    width: 90%;
     max-width: 600px;
   }
   .schedule-card {
     margin-bottom: 0rem;
+    padding: 1.5rem 1rem;
   }
   .schedule-card h3 {
     font-size: 1.5rem;
   }
   .schedule-card p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .food-section {
     grid-template-columns: 1fr;
 
-    width: 75%;
+    width: 90%;
     max-width: 600px;
    
   }
   .food-card {
     margin-bottom: 0rem;
+    padding: 1.5rem 1rem;
   }
   .food-card h3 {
     font-size: 1.5rem;
   }
   .food-card p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 @media (max-width: 650px) {
