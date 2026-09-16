@@ -1,12 +1,20 @@
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation();
 
     hamburger.classList.toggle("active");
-
     navLinks.classList.toggle("open");
 
+});
+document.addEventListener("click", (e) => {
+  const isClickInsideNav = navLinks.contains(e.target) || hamburger.contains(e.target);
+
+  if (!isClickInsideNav && navLinks.classList.contains("open")) {
+    navLinks.classList.remove("open");
+    hamburger.classList.remove("active");
+  }
 });
 const scripturePairs = [
   {
